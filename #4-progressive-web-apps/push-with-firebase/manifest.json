@@ -1,0 +1,13 @@
+{
+  "short_name": "PWF_captain_pangyo",
+  "name": "Push with Firebase Sample - captain pangyo",
+  "icons": [
+    {
+      "src": "images/icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "index.html?launcher=true",
+  "gcm_sender_id": "800635767370"
+}
