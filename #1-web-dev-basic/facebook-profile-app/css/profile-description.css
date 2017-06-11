@@ -1,0 +1,31 @@
+.profile-description {
+  border-top: 1px solid #f2f2f2;
+  margin-bottom: 12px;
+}
+.profile-address {
+  margin: 12px 0 12px 0;
+  color: #4b4f56;
+}
+.profile-address-line {
+  display: flex;
+  padding: 0 16px;
+}
+.profile-address-i {
+  background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/y3/r/SGEId_joT4J.png');
+  background-position: -34px -300px;
+  background-size: 53px 334px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+.profile-address-text {
+  display: flex;
+  flex: 1;
+  padding-left: 8px;
+}
+.profile-address-t {
+  font-size: 14px;
+  line-height: 20px;
+  color: #4b4f56;
+}

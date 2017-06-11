@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Firebase SDK Install</title>
+  </head>
+  <body>
+    Hello Firebase! <span class="log"></span>
+    <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCVp8hvtSBVyirMt8RPNe64zx8-RtMKzU0",
+        authDomain: "devcamp-firebase-52bee.firebaseapp.com",
+        databaseURL: "https://devcamp-firebase-52bee.firebaseio.com",
+        projectId: "devcamp-firebase-52bee",
+        storageBucket: "devcamp-firebase-52bee.appspot.com",
+        messagingSenderId: "654139255262"
+      };
+      firebase.initializeApp(config);
+
+      document.addEventListener('DOMContentLoaded', function (event) {
+        document.querySelector('.log').innerText = firebase.SDK_VERSION;
+        console.log(firebase);
+      });
+    </script>
+  </body>
+</html>

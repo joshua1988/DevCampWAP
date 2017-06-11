@@ -1,0 +1,59 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Wrong Caculator</title>
+  <style>
+    input {
+      border: 1px solid;
+      height: 30px;
+    }
+    .number-box {
+      margin: 10px;
+    }
+    .number-text {
+
+    }
+    button {
+      width: 50px;
+      color: #fff;
+      padding: 6px 12px;
+      background-color: #337ab7;
+      border-color: #2e6da4;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    input {
+      padding-left: 5px;
+    }
+    .left-button {
+      margin-left: 10px;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Simple Calculator</h2>
+  </header>
+  <section>
+    <div class="number-box">
+      <span class="number-text">Number 1 : </span>
+      <input type="text" id="num1">
+    </div>
+    <div class="number-box">
+      <span class="number-text">Number 2 : </span>
+      <input type="text" id="num2">
+    </div>
+    <button class="left-button" id="sumBtn">+</button>
+    <button id="subBtn">-</button>
+  </section>
+  <article>
+    <blockquote id="result">What is the result?</blockquote>
+  </article>
+
+  <script src="app.js"></script>
+</body>
+</html>

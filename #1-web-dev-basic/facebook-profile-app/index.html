@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Facebook Open Graph Markup (how it appears on FB) -->
+    <meta property="og:url" content="https://joshua1988.github.io/DevCampWAP-SWA/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="My Facebook Profile Page" />
+    <meta property="og:description" content="Designed this with bare HTMl, CSS, JS" />
+    <meta property="og:image" content="http://cdn.www.fastcampus.co.kr/wp-content/uploads/2017/04/dev_camp_wap.png" />
+    <title>자기소개 페이지</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/timeline-cover.css">
+    <link rel="stylesheet" href="css/feature-list.css">
+    <link rel="stylesheet" href="css/profile-description.css">
+    <link rel="stylesheet" href="css/timeline-body.css">
+  </head>
+  <body>
+    <script src="js/fb.js"></script>
+
+    <!-- 1. 프로필 배경 -->
+    <div class="timeline-cover">
+      <div class="cover-photo">
+        <img src="images/fb-cover.jpg" alt="" width="100%;" height="180px;">
+      </div>
+      <div class="profile-photo-down">
+        <div>
+          <a href="">
+            <div class="profile-frame">
+              <img src="images/profile.jpg" alt="" width="116px;" height="116px;">
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="profile-user-name">
+        <h3>Gihyo Joshua Jang</h3>
+      </div>
+    </div>
+    <!-- 2. 기능 목록 레이어 -->
+    <div class="feature-list">
+      <div class="feature-list-inner">
+        <div class="feature-item">
+          <a class="feature-item-link" id="share">
+            <i class="feature-item-icon post"></i>
+            <span class="feature-item-name">Post</span>
+          </a>
+        </div>
+        <div class="feature-item">
+          <a class="feature-item-link">
+            <i class="feature-item-icon update-info"></i>
+            <span class="feature-item-name">Update Info</span>
+          </a>
+        </div>
+        <div class="feature-item">
+          <a class="feature-item-link">
+            <i class="feature-item-icon activity-log"></i>
+            <span class="feature-item-name">Activity Log</span>
+          </a>
+        </div>
+        <div class="feature-item">
+          <a class="feature-item-link">
+            <i class="feature-item-icon more"></i>
+            <span class="feature-item-name">More</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- 3. 프로필 설명 -->
+    <div class="profile-description">
+      <div class="profile-address">
+        <div class="profile-address-line">
+          <div>
+            <i class="profile-address-i"></i>
+          </div>
+          <div class="profile-address-text">
+            <span class="profile-address-t">Lives in Pangyo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 4. 댓글 영역 -->
+    <div class="timeline-body">
+      <div class="timeline-share">
+        <!-- share thoughts -->
+      </div>
+      <div class="timeline-feed">
+        <!-- display comments -->
+        <div class="fb-comments" data-href="https://joshua1988.github.io/DevCampWAP-SWA/" data-width="375" data-numposts="5"></div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

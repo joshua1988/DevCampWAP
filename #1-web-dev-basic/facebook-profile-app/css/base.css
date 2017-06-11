@@ -1,0 +1,6 @@
+/* no margin on browser (user-agent) */
+body {
+  margin: 0;
+  text-align: center;
+  font-family: -apple-system, sans-serif;
+}

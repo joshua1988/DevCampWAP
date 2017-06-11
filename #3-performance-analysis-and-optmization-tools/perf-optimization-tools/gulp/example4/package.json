@@ -1,0 +1,38 @@
+{
+  "name": "example4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "del": "^2.2.2",
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.8.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-eslint": "^3.0.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-size": "^2.1.0",
+    "gulp-uglify": "^2.1.2",
+    "gulp-uncss": "^1.0.6",
+    "run-sequence": "^1.2.2"
+  },
+  "dependencies": {
+    "del": "^2.2.2",
+    "gulp-cached": "^1.1.1",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "pump": "^1.0.2"
+  },
+  "eslintConfig": {
+    "extends": "google"
+  }
+}

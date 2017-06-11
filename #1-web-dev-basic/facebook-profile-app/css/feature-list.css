@@ -1,0 +1,52 @@
+.feature-list-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  border-top: 1px solid #f2f2f2;
+  flex: 1;
+}
+.feature-item {
+  flex: 1;
+}
+.feature-item-link {
+  display: block;
+  line-height: 27px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.feature-item-icon {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  top: -1px;
+  background-repeat: no-repeat;
+}
+.post {
+  background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/Hlm7GMn17e3.png');
+  background-position: -21px -55px;
+  background-size: 104px 108px;
+}
+.update-info {
+  background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/y2/r/yq0jcyPZDDS.png');
+  background-position: 0 -180px;
+  background-size: 51px 235px;
+}
+.activity-log {
+  background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/y2/r/yq0jcyPZDDS.png');
+  background-position: -21px -159px;
+  background-size: 51px 235px;
+}
+.more {
+  background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/tB9YdRWNCP4.png');
+  background-position: -30px -174px;
+  background-size: 53px 589px;
+}
+.feature-item-name {
+  line-height: 16px;
+  font-family: -apple-system, sans-serif;
+  font-size: 11px;
+  display: block;
+}

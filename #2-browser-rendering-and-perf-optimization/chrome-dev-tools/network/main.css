@@ -1,0 +1,21 @@
+img {
+  max-height: 15vh;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 3vh 0;
+}
+label {
+  margin-right: 1vw;
+  text-align: right;
+  width: 25vw;
+}
+input {
+  border: 1px solid grey;
+}

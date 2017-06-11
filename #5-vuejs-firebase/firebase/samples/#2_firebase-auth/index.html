@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Auth Sample</title>
+    <style>
+      div {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div>
+        <label for="email">Email : </label>
+        <input type="email" name="email">
+      </div>
+      <div>
+        <label for="password">Password : </label>
+        <input type="password" name="password">
+      </div>
+      <button type="button" id="authLoginBtn">Login</button>
+      <button type="button" id="authGoogleLoginBtn">Login with Google</button>
+      <button type="button" id="signUpBtn">Sign up</button>
+      <button type="button" id="signOutBtn">Sign Out</button>
+    </form>
+    <section>
+      <p>Login Please</p>
+    </section>
+
+    <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+    <script src="js/firebase-init.js"></script>
+    <script src="js/firebase-auth.js"></script>
+  </body>
+</html>

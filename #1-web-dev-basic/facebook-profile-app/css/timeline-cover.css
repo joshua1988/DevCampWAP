@@ -1,0 +1,26 @@
+.cover-photo {
+  height: 180px;
+}
+.profile-photo-down {
+  display: inline-block;
+}
+.profile-frame {
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .125);
+  background-color: #fff;
+  height: 116px;
+  margin-top: -50%;
+  padding: 2px;
+}
+.profile-user-name {
+  color: #90949c;
+  padding: 12px;
+  line-height: 16px;
+}
+h3 {
+  color: #1d2129;
+  font: 26px Helvetica, Arial, sans-serif;
+  letter-spacing: -0.25px;
+  line-height: 1;
+  margin: 0;
+}

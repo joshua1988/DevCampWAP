@@ -1,0 +1,47 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Critical Rendering Path</title>
+  <link rel="stylesheet" href="crp-main.css">
+</head>
+<body>
+  <header>
+    <h4>Analyze Critical Rendering Path</h4>
+  </header>
+  <section>
+    <ol>
+      <li>
+        Fetch the request to download HTML document
+      </li>
+      <li>
+        Parse the HTML into DOM
+      </li>
+      <li>
+        Fetch another request to download web resources (style, script, images, etc)
+      </li>
+      <li>
+        Parse the CSS into CSSOM
+      </li>
+      <li>
+        Interpret the js and execeute to complete the HTML parsing
+      </li>
+      <li>
+        Construct Render Tree combining DOM & CSSOM
+      </li>
+      <li>
+        Render Tree Layout
+      </li>
+      <li>
+        Render Tree Paint convertin the visual elements into pixels on the screen
+      </li>
+    </ol>
+  </section>
+  <section>
+    <img src="" alt="">
+  </section>
+
+  <script src="crp-main.js"></script>
+</body>
+</html>
