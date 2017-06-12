@@ -142,6 +142,70 @@ npm i css-loader style-loader --save-dev
 npm i extract-text-webpack-plugin --save-dev
 ```
 
+1. Create a new `package.json`
+
+```
+npm init -y
+```
+
+2. Install the necessary loaders and plugins using the commands above
+3. Add index.html
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSS & Libraries Code Splitting</title>
+  </head>
+  <body>
+    <header>
+      <h3>CSS Code Splitting</h3>
+    </header>
+    <div>
+      <p>
+        This text should be colored with blue after injecting CSS bundle
+      </p>
+    </div>
+    <script src="dist/bundle.js"></script>
+  </body>
+</html>
+```
+
+4. Add `base.css`
+
+```css
+p {
+  color : blue;
+}
+```
+
+5. Add `app/index.js`
+
+```js
+import '../base.css';
+```
+
+6. Add `webpack.config.js`
+
+```js
+var path = require('path');
+
+module.exports = {
+  entry: './app/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    rules: [{
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader']
+    }]
+  },
+}
+```
+
 #### Example 2 - Libraries Code Splitting
 - When using a couple of libraries, should you import them at the very beginning of bundling all files to avoid repetitively use them in every build.
 
@@ -150,6 +214,93 @@ npm install --save moment
 npm install --save lodash
 
 npm i webpack-manifest-plugin --save-dev
+```
+
+1. Create a new `package.json`
+
+```
+npm init -y
+```
+
+2. Install the necessary loaders and plugins using the commands above
+3. Add `index.html`
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Libraries Code Splitting</title>
+  </head>
+  <body>
+    <header>
+      <h3>Libraries Code Splitting</h3>
+    </header>
+    <div>
+      <label for="p1"><strong>Moment JS : </strong></label>
+      <p class="p1">
+        not yet loaded
+      </p>
+      <label for="p2"><strong>Lodash JS : </strong></label>
+      <p class="p2">
+        not yet loaded
+      </p>
+    </div>
+    <script src="dist/vendor.js"></script>
+    <script src="dist/main.js"></script>
+  </body>
+</html>
+```
+
+4. Add `app/index.js`
+
+```js
+var moment = require('moment');
+var _ = require('lodash');
+var ele = document.querySelectorAll('p');
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  ele[0].innerText = moment().format();
+  ele[1].innerText = _.drop([1, 2, 3], 0);
+});
+```
+
+5. Add `webpack.config.js`
+
+```js
+var webpack = require('webpack');
+var path = require('path');
+
+module.exports = {
+  entry: {
+    main: './app/index.js',
+    vendor: [
+      'moment',
+      'lodash'
+    ]
+  },
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist')
+  }
+}
+```
+
+optional
+
+```js
+// 1
+plugins: [
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'vendor' // Specify the common bundle's name.
+  }),
+]
+
+// 2
+new ManifestPlugin({
+  fileName: 'manifest.json',
+  basePath: './dist/'
+})
 ```
 
 #### Example 3 - Webpack Dev Server Setting
@@ -164,6 +315,51 @@ webpack-dev-server --open
 
 ```json
 "scripts": { "start": "webpack-dev-server" }
+```
+
+1. Create a new `package.json` and type the commands above
+2. Add `index.html`
+
+```html
+<html>
+  <head>
+    <title>Webpack Dev Server</title>
+  </head>
+  <body>
+    <div class="container">
+      hello
+    </div>
+    <script src="/dist/bundle.js"></script>
+  </body>
+</html>
+```
+
+3. Add `app/index.js`
+
+```js
+var ele = document.getElementsByClassName('container')[0]
+ele.innerText = "Webpack loaded!!";
+```
+
+4. Add `webpack.config.js`
+
+```js
+var path = require('path');
+
+module.exports = {
+  entry: './app/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: 'dist'
+  },
+  devtool: "cheap-eval-source-map",
+  devServer: {
+    publicPath: "/dist/",
+    port: 9000
+  },
+};
+
 ```
 
 #### Example 4 - Webpack Dev Middleware
