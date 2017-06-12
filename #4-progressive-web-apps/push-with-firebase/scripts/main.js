@@ -29,13 +29,16 @@ var swRegistration = null;
 function updateSubscriptionOnServer(subscription) {
   // TODO: Send subscription to application server
 
-  const subscriptionJson = document.querySelector('.js-subscription-json');
-  const subscriptionDetails =
+  var subscriptionJson = document.querySelector('.js-subscription-json');
+  var subscriptionDetails =
     document.querySelector('.js-subscription-details');
 
   if (subscription) {
     subscriptionJson.textContent = JSON.stringify(subscription);
     subscriptionDetails.classList.remove('is-invisible');
+
+    // send a key to Firebase DB
+    sendDeviceKeytoFirebase(subscription.endpoint.split('send/')[1]);
   } else {
     subscriptionDetails.classList.add('is-invisible');
   }
@@ -148,15 +151,15 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
   console.log('Service Worker and Push is supported');
 
   navigator.serviceWorker.register('sw.js')
-  .then(function(swReg) {
-    console.log('Service Worker is registered', swReg);
+    .then(function(swReg) {
+      console.log('Service Worker is registered', swReg);
 
-    swRegistration = swReg;
-    initialiseUI();
-  })
-  .catch(function(error) {
-    console.error('Service Worker Error', error);
-  });
+      swRegistration = swReg;
+      initialiseUI();
+    })
+    .catch(function(error) {
+      console.error('Service Worker Error', error);
+    });
 } else {
   console.warn('Push messaging is not supported');
   pushButton.textContent = 'Push Not Supported';
