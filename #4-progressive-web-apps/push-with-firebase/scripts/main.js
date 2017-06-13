@@ -26,21 +26,24 @@ var isSubscribed = false;
 var swRegistration = null;
 
 // #8
-function updateSubscriptionOnServer(subscription) {
+function updateSubscriptionOnServer(subscription, unsubscribed) {
   // TODO: Send subscription to application server
 
   var subscriptionJson = document.querySelector('.js-subscription-json');
   var subscriptionDetails =
     document.querySelector('.js-subscription-details');
 
-  if (subscription) {
+  if (subscription && !unsubscribed) {
     subscriptionJson.textContent = JSON.stringify(subscription);
     subscriptionDetails.classList.remove('is-invisible');
 
     // send a key to Firebase DB
     sendDeviceKeytoFirebase(subscription.endpoint.split('send/')[1]);
-  } else {
+  } else if (unsubscribed) {
     subscriptionDetails.classList.add('is-invisible');
+
+    // 아래 API 를 구현해보세요
+    removeDeviceKeyInFirebase();
   }
 }
 
@@ -65,6 +68,40 @@ function subscribeUser() {
   });
 }
 
+function unSubscribeUser() {
+  swRegistration.pushManager.getSubscription().then(function(subscription) {
+    subscription.unsubscribe().then(function(successful) {
+      // You've successfully unsubscribed
+      console.log('User is unsubscribed : ', successful);
+      console.log('Unsubscribed subscription : ', subscription);
+
+      updateSubscriptionOnServer(subscription, successful);
+      isSubscribed = false;
+
+      updateBtn();
+    }).catch(function(e) {
+      // Unsubscription failed
+      console.log('Failed to unsubscribe the user: ', e);
+      updateBtn();
+    })
+  });
+
+
+  // .then(function(subscription) {
+  //   console.log('User is unsubscribed : ', subscription);
+  //
+  //   // updateSubscriptionOnServer(subscription);
+  //
+  //   isSubscribed = false;
+  //
+  //   updateBtn();
+  // })
+  // .catch(function(e) {
+  //   console.log('Failed to unsubscribe the user: ', e);
+  //   updateBtn();
+  // });
+}
+
 // #4
 function initialiseUI() {
   // #5
@@ -72,6 +109,7 @@ function initialiseUI() {
     pushButton.disabled = true;
     if (isSubscribed) {
       // TODO: Unsubscribe user
+      unSubscribeUser();
     } else {
       subscribeUser();
     }
