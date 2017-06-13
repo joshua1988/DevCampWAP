@@ -363,7 +363,137 @@ module.exports = {
 ```
 
 #### Example 4 - Webpack Dev Middleware
-- TBD
+- Have a full control over already installed Node.js by installing the commands below
+
+```
+npm install webpack --save
+npm install --save-dev express webpack-dev-middleware
+```
+
+1. Create a new `package.json` and type the commands above
+2. Add `index.html`
+
+```html
+<html>
+  <head>
+    <title>Webpack Dev Middleware</title>
+  </head>
+  <body>
+    <div class="container">
+      hello
+    </div>
+    <script src="/dist/bundle.js"></script>
+  </body>
+</html>
+```
+
+3. Create a new `server.js` file and add Express & EJS in it
+
+```js
+var express = require('express');
+var app = express();
+var path = require('path');
+
+app.use(express.static(__dirname));
+
+// view engine setup
+// __dirname : root folder
+app.set('views', path.join(__dirname));
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+
+app.get('/', function (req, res) {
+  res.send('index');
+});
+
+app.listen(3000);
+console.log("Server running on port 3000");
+```
+
+4. Run `server.js` and make sure it doens't cause any errors
+5. Add `app/index.js`
+
+```js
+var ele = document.getElementsByClassName('container')[0]
+ele.innerText = "Webpack loaded!!";
+```
+
+6. Add `webpack.config.js`
+
+```js
+var path = require('path');
+var webpack = require('webpack');
+
+module.exports = {
+  entry: './app/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: 'http://localhost:3000/dist'
+  },
+};
+```
+
+7. Add the codes below to `server.js`
+
+```js
+var webpackDevMiddleware = require("webpack-dev-middleware");
+var webpack = require("webpack");
+var webpackConfig = require("./webpack.config");
+var compiler = webpack(webpackConfig);
+```
+
+```js
+app.use(webpackDevMiddleware(compiler, {
+  publicPath: webpackConfig.output.publicPath,
+  stats: {colors: true}
+}));
+```
 
 #### Example 5 - Webpack Plugins
--
+- Besides loader, plugins offer a wide variety of different features that Loaders don't provide
+
+1. Create a new `package.json` and install plugins below
+
+```
+npm init -y
+npm install webpack & jquery --save-dev
+```
+
+2. Add `index.html`
+
+```html
+<html>
+  <head>
+    <title>Webpack Plugins</title>
+  </head>
+  <body>
+    <script src="dist/bundle.js"></script>
+  </body>
+</html>
+```
+
+3. Add `app/index.js`
+
+```js
+var $ = require('jquery');
+console.log("loaded jQuery version is " + $.fn.jquery);
+```
+
+4. Add `webpack.config.js`
+
+```js
+var path = require('path');
+var webpack = require('webpack');
+
+module.exports = {
+  entry: './app/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  }
+};
+```
+
+5. run `webpack`
+6. uncomments `#2` and `#3` to see how Resolve alias & Provide Plugin works

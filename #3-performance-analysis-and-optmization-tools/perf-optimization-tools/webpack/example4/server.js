@@ -1,6 +1,8 @@
+// Express Web Framework
 var express = require('express');
 var app = express();
 var path = require('path');
+
 // Webpack Dev Server #1 - load the needed libraries
 var webpackDevMiddleware = require("webpack-dev-middleware");
 var webpack = require("webpack");
