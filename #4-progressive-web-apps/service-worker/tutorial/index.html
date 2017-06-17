@@ -1,0 +1,36 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Service Worker Tutorial</title>
+</head>
+<body>
+  <header>
+    <h3>Service Worker</h3>
+  </header>
+  <section>
+    <img src="app/assets/thank-you.png" width="400px" height="300px">
+  </section>
+  <section>
+    <div>
+      service worker is <span>not loaded yet.</span>
+    </div>
+  </section>
+
+  <script src="app/js/main.js" async></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('sw.js').then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          updateDOM('loaded');
+        }).catch(function(err) {
+          console.log('ServiceWorker registration failed: ', err);
+          updateDOM('failed at registering');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
