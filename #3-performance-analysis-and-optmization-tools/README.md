@@ -206,13 +206,35 @@ module.exports = {
 }
 ```
 
+7. Add ExtractPlugin to exract the bundled css filename
+
+```js
+// webpack.config.js
+{
+  // ...
+  module: {
+    rules: [{
+      test: /\.css$/,
+      // Comment this out to load ExtractTextPlugin
+      // use: ['style-loader', 'css-loader']
+      use: ExtractTextPlugin.extract({
+        fallback: "style-loader",
+        use: "css-loader"
+      })
+    }]
+  },
+  plugins: [
+    new ExtractTextPlugin('styles.css')
+  ]
+}
+```
+
 #### Example 2 - Libraries Code Splitting
 - When using a couple of libraries, should you import them at the very beginning of bundling all files to avoid repetitively use them in every build.
 
 ```text
-npm install --save moment
-npm install --save lodash
-
+npm install webpack --save-dev
+npm install moment lodash --save
 npm i webpack-manifest-plugin --save-dev
 ```
 
@@ -307,7 +329,7 @@ new ManifestPlugin({
 - Initial development setting to make the build process easier
 
 ```
-npm install --save-dev webpack-dev-server
+npm install webpack webpack-dev-server --save-dev
 webpack-dev-server --open
 ```
 
@@ -359,15 +381,18 @@ module.exports = {
     port: 9000
   },
 };
-
 ```
+
+5. Run `npm start` to launch the Webpack Dev Server
+
+> Please keep in mind that the **webpack devserver compiles in memory** not emits bundled file in output.path
 
 #### Example 4 - Webpack Dev Middleware
 - Have a full control over already installed Node.js by installing the commands below
 
 ```
 npm install webpack --save
-npm install --save-dev express webpack-dev-middleware
+npm install express webpack-dev-middleware --save-dev
 ```
 
 1. Create a new `package.json` and type the commands above
