@@ -125,7 +125,7 @@ self.addEventListener('fetch', function(event) {
 
 ![cached resources loaded - offline](http://joshua1988.github.io/images/posts/etc/offline-load.png)
 
-11. Add `activate event` to update the previous service worker
+11. Add `activate event` to update the registered service worker with a new one
 
 ```js
 self.addEventListener('activate', function(event) {
@@ -133,7 +133,23 @@ self.addEventListener('activate', function(event) {
 });
 ```
 
-<!-- https://developers.google.com/web/fundamentals/getting-started/primers/service-workers 의 Updated a Service Worker 참고 -->
+12. (Optional) register a new cache after deleting the previously registered caches
+
+```js
+var cacheWhitelist = ['pages-cache-v1', 'blog-posts-cache-v1'];
+
+event.waitUntil(
+  caches.keys().then(function(cacheNames) {
+    return Promise.all(
+      cacheNames.map(function(cacheName) {
+        if (cacheWhitelist.indexOf(cacheName) === -1) {
+          return caches.delete(cacheName);
+        }
+      })
+    );
+  })
+);
+```
 
 ---
 # Push-With-Firebase

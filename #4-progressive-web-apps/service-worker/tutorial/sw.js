@@ -8,6 +8,10 @@ var urlsToCache = [
   '/app/js/main.js'
 ];
 
+// #12 - add an updated cache
+// var UPDATED_CACHE_NAME = 'pages-cache-v1';
+
+
 // #5 - add serviceworker install event
 self.addEventListener('install', function(event) {
   console.log('Service Worker installing.');
@@ -38,7 +42,22 @@ self.addEventListener('fetch', function(event) {
   );
 });
 
-// #
+// #11
 self.addEventListener('activate', function(event) {
   console.log('Service Worker activating.');
+
+  // #12 - When sw changes a bit, a new cache needs to be registered and the old cache needs to be deleted
+  // var cacheWhitelist = [UPDATED_CACHE_NAME];
+  //
+  // event.waitUntil(
+  //   caches.keys().then(function(cacheNames) {
+  //     return Promise.all(
+  //       cacheNames.map(function(cacheName) {
+  //         if (cacheWhitelist.indexOf(cacheName) === -1) {
+  //           return caches.delete(cacheName);
+  //         }
+  //       })
+  //     );
+  //   })
+  // );
 });
