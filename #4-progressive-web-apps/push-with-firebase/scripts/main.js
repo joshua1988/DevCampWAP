@@ -27,11 +27,8 @@ var swRegistration = null;
 
 // #8
 function updateSubscriptionOnServer(subscription, unsubscribed) {
-  // TODO: Send subscription to application server
-
   var subscriptionJson = document.querySelector('.js-subscription-json');
-  var subscriptionDetails =
-    document.querySelector('.js-subscription-details');
+  var subscriptionDetails = document.querySelector('.js-subscription-details');
 
   if (subscription && !unsubscribed) {
     subscriptionJson.textContent = JSON.stringify(subscription);
@@ -57,9 +54,7 @@ function subscribeUser() {
     console.log('User is subscribed:', subscription);
 
     updateSubscriptionOnServer(subscription);
-
     isSubscribed = true;
-
     updateBtn();
   })
   .catch(function(err) {
@@ -71,7 +66,6 @@ function subscribeUser() {
 function unSubscribeUser() {
   swRegistration.pushManager.getSubscription().then(function(subscription) {
     subscription.unsubscribe().then(function(successful) {
-      // You've successfully unsubscribed
       console.log('User is unsubscribed : ', successful);
       console.log('Unsubscribed subscription : ', subscription);
 
@@ -80,26 +74,10 @@ function unSubscribeUser() {
 
       updateBtn();
     }).catch(function(e) {
-      // Unsubscription failed
       console.log('Failed to unsubscribe the user: ', e);
       updateBtn();
     })
   });
-
-
-  // .then(function(subscription) {
-  //   console.log('User is unsubscribed : ', subscription);
-  //
-  //   // updateSubscriptionOnServer(subscription);
-  //
-  //   isSubscribed = false;
-  //
-  //   updateBtn();
-  // })
-  // .catch(function(e) {
-  //   console.log('Failed to unsubscribe the user: ', e);
-  //   updateBtn();
-  // });
 }
 
 // #4
@@ -108,7 +86,6 @@ function initialiseUI() {
   pushButton.addEventListener('click', function() {
     pushButton.disabled = true;
     if (isSubscribed) {
-      // TODO: Unsubscribe user
       unSubscribeUser();
     } else {
       subscribeUser();
@@ -158,27 +135,18 @@ function updateBtn() {
 function getKey() {
   navigator.serviceWorker.ready.then(function(reg) {
     reg.pushManager.subscribe({userVisibleOnly: true}).then(function(subscription) {
-        // isPushEnabled = true;
-        // updatePushSwitch();
-
-        // Update status to subscribe current user on server, and to let
-        // other users know this user has subscribed
         var endpoint = subscription.endpoint;
         var key = subscription.getKey('p256dh');
 
         console.log("browser key : ", key);
-        // updateStatus(endpoint, key, 'subscribe');
-
       }).catch(function(e) {
         if (Notification.permission === 'denied') {
           // 사용자가 알람 권한을 설정하지 않은 경우
           console.log('알람 표시 설정이 되어 있지 않습니다.');
-          // pushStatus.innerHTML = "알림 표시 설정이 필요합니다.";
         } else {
           // subscription 관련한 에러 발생시,
           // gcm_sender_id 또는 gcm_user_visible_only 를 확인
           console.log('Unable to subscribe to push.', e);
-          // pushStatus.innerHTML = "알림 구독이 실패하였습니다.";
         }
       });
   });

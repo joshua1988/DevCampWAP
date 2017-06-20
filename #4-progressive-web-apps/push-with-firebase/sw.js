@@ -1,7 +1,6 @@
 // #10
 self.addEventListener('push', function(event) {
   console.log('[Service Worker] Push Received.');
-  // console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
 
   var title = 'Push Codelab';
   var options = {
@@ -19,7 +18,6 @@ self.addEventListener('notificationclick', function(event) {
   console.log('[Service Worker] Notification click Received.');
 
   event.notification.close();
-
   event.waitUntil(
     clients.openWindow('http://www.fastcampus.co.kr/dev_camp_wap/')
   );

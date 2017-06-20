@@ -15,7 +15,7 @@ function sendDeviceKeytoFirebase(key) {
 function removeDeviceKeyInFirebase(key) {
   // Firebase 의 DB data 삭제 API 를 이용하여
   // Disable 한 기기의 키 값을 제거해보세요.
-  
+
 }
 
 function getID() {
