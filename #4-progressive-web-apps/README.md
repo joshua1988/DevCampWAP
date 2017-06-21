@@ -412,8 +412,8 @@ self.addEventListener('notificationclick', function(event) {
 
 ![09-push-codelab](https://github.com/joshua1988/DevCampWAP/blob/master/%234-progressive-web-apps/push-with-firebase/images/screenshots/09-push-codelab.png?raw=true)
 
-
-22. Implement `unSubscribeUser()` to delete the subscription info in Firebase DB
+22. Send a push to the browser using the Curl command that contains Server Key & Browser Key (end point).
+23. Implement `unSubscribeUser()` to delete the subscription info in Firebase DB
 
 ```js
 function unSubscribeUser() {
@@ -433,3 +433,5 @@ function unSubscribeUser() {
   });
 }
 ```
+
+24. (optional) Implement `removeDeviceKeyInFirebase()` in `firebase-db.js` to delete the disabled browser for push subscription. refer to this [API](https://firebase.google.com/docs/database/web/read-and-write#delete_data)
