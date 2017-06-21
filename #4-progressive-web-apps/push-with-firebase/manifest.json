@@ -8,6 +8,8 @@
       "sizes": "192x192"
     }
   ],
+  "background_color": "#00bcd4",
   "start_url": "index.html?launcher=true",
+  "display": "standalone",
   "gcm_sender_id": "800635767370"
 }

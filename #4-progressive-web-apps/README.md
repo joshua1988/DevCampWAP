@@ -257,6 +257,8 @@ function initialiseUI() {
 }
 ```
 
+> Let's implement features to enable push on the website.
+
 10. Implement `subscribeUser()` to subscribe with the registered service worker
 
 ```js
@@ -281,7 +283,7 @@ function subscribeUser() {
 
 11. Check the subscription as a callback parameter
 
-![subscription](subscription.png)
+![subscription](https://github.com/joshua1988/DevCampWAP/blob/master/%234-progressive-web-apps/push-with-firebase/images/screenshots/subscription.png?raw=true)
 
 12. Add `updateSubscriptionOnServer()` in `subscribeUser()`'s success callback to send the key to Server
 
@@ -315,11 +317,12 @@ function updateSubscriptionOnServer(subscription, unsubscribed) {
 
 14. Run the application and click the button. You will see the prompt as below.
 
-![push alarm](05-push-codelabs.png)
+![push alarm](https://github.com/joshua1988/DevCampWAP/blob/master/%234-progressive-web-apps/push-with-firebase/images/screenshots/05-push-codelabs.png?raw=true)
 
-Now we need to send this subscription information to the server so that we can send the specific device a push message.
 
-15. Add the `sendDeviceKeytoFirebase()` to send the browser key to Firebase
+> Now we need to send this subscription information to the server so that we can send the specific device a push message.
+
+15. Add the `sendDeviceKeytoFirebase()` to `updateSubscriptionOnServer()` to send the browser key to Firebase
 
 ```js
 // main.js
@@ -367,9 +370,10 @@ function getCurrentTime() {
 
 18. Check the Firebase Database if the data has been stored properly in the table.
 
-![firebase-db](firebase-db.png)
+![firebase-db](https://github.com/joshua1988/DevCampWAP/blob/master/%234-progressive-web-apps/push-with-firebase/images/screenshots/firebase-db.png?raw=true)
 
-Let's code the last part of this tutorial, which is Push Notification
+
+> Let's code the last part of this tutorial, which is Push Notification
 
 19. Add this code below in `sw.js` to pop up the notification when push arrives
 
@@ -406,7 +410,8 @@ self.addEventListener('notificationclick', function(event) {
 
 21. Let's see if this push function works through 'Application' panel in Dev Tools. Click the notification too
 
-![09-push-codelab](09-push-codelab.png)
+![09-push-codelab](https://github.com/joshua1988/DevCampWAP/blob/master/%234-progressive-web-apps/push-with-firebase/images/screenshots/09-push-codelab.png?raw=true)
+
 
 22. Implement `unSubscribeUser()` to delete the subscription info in Firebase DB
 
