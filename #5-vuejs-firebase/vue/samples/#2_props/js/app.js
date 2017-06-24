@@ -6,6 +6,6 @@ Vue.component('child-component', {
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'Hello Vue! from Parent Component',
+    message: 'Hello Vue! passed from Parent Component'
   }
 });
