@@ -20,7 +20,7 @@ Vue.js samples, Firebase samples and Web Application Project mixing all of them 
 - You can either sign in with Google or create an account to log in with the next two buttons.
 
 #### 3. Firebase DB & Storage
-- 
+-
 
 
 ## Vue Samples (vue/samples/..)
