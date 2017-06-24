@@ -6,10 +6,15 @@
     <title>Vue Components Sample</title>
   </head>
   <body>
+    <!-- Parent Component -->
     <div id="app">
-      {{ message }}
-      <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+      <header>
+        <h3>{{ message }}</h3>
+      </header>
+      <!-- Child Component -->
+      <todo-item></todo-item>
     </div>
+
     <script src="js/vendor/vue.js"></script>
     <script src="js/app.js"></script>
   </body>
