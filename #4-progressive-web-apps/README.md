@@ -317,7 +317,7 @@ function updateSubscriptionOnServer(subscription, unsubscribed) {
 
 14. Run the application and click the button. You will see the prompt as below.
 
-![push alarm](https://github.com/joshua1988/DevCampWAP/blob/master/%234-progressive-web-apps/push-with-firebase/images/screenshots/05-push-codelabs.png?raw=true)
+![push alarm](https://github.com/joshua1988/DevCampWAP/blob/master/%234-progressive-web-apps/push-with-firebase/images/screenshots/05-push-codelab.png)
 
 
 > Now we need to send this subscription information to the server so that we can send the specific device a push message.
