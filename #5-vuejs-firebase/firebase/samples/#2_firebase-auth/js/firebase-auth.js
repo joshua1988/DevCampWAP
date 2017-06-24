@@ -56,8 +56,8 @@ var firebaseSignUp = function () {
 };
 
 var firebaseSignOut = function () {
-  // 실습 : Sign Out API 찾아서 기능 구현
-  
+  // 할일 : Sign Out API 찾아서 기능 구현
+
 };
 
 var getEmail = function () {

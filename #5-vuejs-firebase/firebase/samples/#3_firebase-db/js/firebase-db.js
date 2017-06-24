@@ -1,6 +1,3 @@
-// Get a reference to the database service
-var database = firebase.database();
-
 // App Logic
 var input = document.querySelector('input');
 var list = document.querySelector('p');
@@ -25,7 +22,6 @@ function addToDB() {
 function appendItemsToList(obj) {
   var arr = [];
   for (key in obj) {
-    // console.log(obj[key].input);
     arr.push(obj[key].input);
   }
   return list.innerText = arr;
