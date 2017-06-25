@@ -2,8 +2,8 @@
   <div id="app">
     <!-- component naming #1 -->
     <TodoHeader></TodoHeader>
-    <TodoInput v-bind:passed-data='todoItems' @clearLocalStorage='clearLocalStorage'></TodoInput>
-    <TodoList v-bind:passedData='todoItems'></TodoList>
+    <TodoInput v-bind:passed-data="todoItems" @clearLocalStorage="clearLocalStorage"></TodoInput>
+    <TodoList v-bind:passedData="todoItems" v-on:removeTodo="removeTodo"></TodoList>
 
     <!-- component naming #2 -->
     <!-- <todo-header></todo-header>
@@ -39,6 +39,10 @@ export default {
     clearLocalStorage() {
       localStorage.clear();
       this.todoItems = [];
+    },
+    removeTodo(item, index) {
+      this.todoItems.splice(index, 1);
+      localStorage.removeItem(item);
     }
   },
 

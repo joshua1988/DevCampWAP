@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <input type="text" v-model="newTodoItem" placeholder="Type what you have to do">
-    <button type="button" v-on:click='addTodo'>Add</button>
+    <button type="button" v-on:click="addTodo">Add</button>
     <button type="button" @click="clearTodo">Clear All</button>
   </div>
 </template>

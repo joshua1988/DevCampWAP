@@ -1,9 +1,10 @@
 <template lang="html">
   <section>
     <!-- <ul v-if="countItems"> -->
-    <ul>
-      <li v-for="todoItem in passedData">
+    <ul v-if="passedData">
+      <li v-for="(todoItem, index) in passedData" :key="todoItem">
         {{ todoItem }}
+        <button type="button" @click="removeTodo(todoItem, index)">X</button>
       </li>
     </ul>
 
@@ -21,6 +22,11 @@ export default {
       flag: true
     }
   },
+  methods: {
+    removeTodo(todoItem, index) {
+      this.$emit('removeTodo', todoItem, index);
+    }
+  }
 
   // computed: {
   //   countItems: function () {
