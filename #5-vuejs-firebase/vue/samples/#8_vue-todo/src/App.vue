@@ -2,7 +2,7 @@
   <div id="app">
     <!-- component naming #1 -->
     <TodoHeader></TodoHeader>
-    <TodoInput v-bind:passed-data='todoItems'></TodoInput>
+    <TodoInput v-bind:passed-data='todoItems' @clearLocalStorage='clearLocalStorage'></TodoInput>
     <TodoList v-bind:passedData='todoItems'></TodoList>
 
     <!-- component naming #2 -->
@@ -33,6 +33,12 @@ export default {
   created() {
     for (var key in localStorage) {
       this.todoItems.push(key);
+    }
+  },
+  methods: {
+    clearLocalStorage() {
+      localStorage.clear();
+      this.todoItems = [];
     }
   },
 

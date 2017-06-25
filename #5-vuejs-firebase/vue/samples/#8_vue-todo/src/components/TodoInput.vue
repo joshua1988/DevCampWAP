@@ -2,6 +2,7 @@
   <div>
     <input type="text" v-model="newTodoItem" placeholder="Type what you have to do">
     <button type="button" v-on:click='addTodo'>Add</button>
+    <button type="button" @click="clearTodo">Clear All</button>
   </div>
 </template>
 
@@ -19,6 +20,9 @@ export default {
       localStorage.setItem(value, value);
       this.passedData.push(value);
       this.newTodoItem = '';
+    },
+    clearTodo() {
+      this.$emit('clearLocalStorage');
     }
   }
 }
