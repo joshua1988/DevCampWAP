@@ -64,6 +64,8 @@ export default {
 <style>
   body {
     text-align: center;
+    background-color: #62acde;
+    font-family: 'Ubuntu', sans-serif;
   }
   input {
     border-style: groove;

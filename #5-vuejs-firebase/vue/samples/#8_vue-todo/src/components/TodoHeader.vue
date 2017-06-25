@@ -1,6 +1,6 @@
 <template lang="html">
   <header>
-    <h4>Vue Todo</h4>
+    <h1>Vue Todo</h1>
   </header>
 </template>
 
@@ -8,4 +8,7 @@
 </script>
 
 <style lang="css">
+h1 {
+  color: white;
+}
 </style>
