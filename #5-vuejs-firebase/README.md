@@ -53,6 +53,11 @@ npm run dev
 - With this very simple webpack config, the .vue codes get converted into essential js files.
 - Hot reloding and auto-build as you make a change in codes.
 
+#### 8. Vue Todo Sample
+[Demonstration](https://vuejstodo-aa185.firebaseapp.com)
+
+- Simple Todo Web Application developed with Single File Components
+
 # The MIT License (MIT)
 Copyright © 2017 Captain Pangyo
 
