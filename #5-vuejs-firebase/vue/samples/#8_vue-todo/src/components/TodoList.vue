@@ -1,51 +1,27 @@
 <template lang="html">
   <section>
-    <!-- <ul v-if="countItems"> -->
     <ul v-if="passedData">
-      <li v-for="(todoItem, index) in passedData" :key="todoItem">
-        <i class="checkBtn fa fa-check" aria-hidden="true"></i>
-        {{ todoItem }}
-        <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
-          <i class="fa fa-trash-o" aria-hidden="true"></i>
-        </span>
-      </li>
+      <transition-group name="list" tag="p">
+        <li v-for="(todoItem, index) in passedData" :key="todoItem">
+          <i class="checkBtn fa fa-check" aria-hidden="true"></i>
+          {{ todoItem }}
+          <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          </span>
+        </li>
+      </transition-group>
     </ul>
-
-    <!-- Button Click Event & Shorthand -->
-    <!-- <button type="button" v-on:click='getItems'>work</button> -->
-    <!-- <button type="button" @click='getItems'>work</button> -->
   </section>
 </template>
 
 <script>
 export default {
   props: ['passedData'],
-  data () {
-    return {
-      flag: true
-    }
-  },
   methods: {
     removeTodo(todoItem, index) {
       this.$emit('removeTodo', todoItem, index);
     }
   }
-
-  // computed: {
-  //   countItems: function () {
-  //     return Object.keys(localStorage).length;
-  //   }
-  // },
-  // methods: {
-  //   checkItems: function () {
-  //     return flag = (this.countItems() > 0) ? true : false;
-  //   },
-  // },
-  // created() {
-  //   for (var key in localStorage) {
-  //     this.todoItems.push(key);
-  //   }
-  // }
 }
 </script>
 
@@ -74,5 +50,18 @@ li {
 .removeBtn {
   margin-left: auto;
   color: #de4343;
+}
+
+/* transition effect */
+.list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to /* .list-leave-active for <2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
 }
 </style>
