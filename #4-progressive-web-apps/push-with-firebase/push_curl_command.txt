@@ -7,4 +7,4 @@ curl --header "Authorization: key={Firebase Server Key in Cloud Messaging}"
 
 
 2. 샘플
-curl --header "Authorization: key=AAAAummcSko:APA91bHppIKcGEMQnLT8RvZC_q1eVrVz2T2IJMIczC4Vh2k-nJquUs0u5_5_UVfiYPVLEJZGUp2jWJsDav8S4ZYifvphaVH0FAJzufKX6-unlvQhKzBM6Ia94BLpSz7_aZGkT7fsqEJg" --header "Content-Type: application/json" https://android.googleapis.com/gcm/send -d "{\"registration_ids\":[\"eY5_7GxvrJk:APA91bGuai4l296yiBU0IjfDxOecvo-s4au5vnmhFEIz44hdL_ldjBLqIdsJ0_CkbUxsrnENZTHUYaBanITjUnvzN9CWrua42GcALCYQJUb8bvbOnGymce4jQDSrXWXQoLP-BO2_YPl0\"]}"
+curl --header "Authorization: key=AAAAummcSko:APA91bHppIKcGEMQnLT8RvZC_q1eVrVz2T2IJMIczC4Vh2k-nJquUs0u5_5_UVfiYPVLEJZGUp2jWJsDav8S4ZYifvphaVH0FAJzufKX6-unlvQhKzBM6Ia94BLpSz7_aZGkT7fsqEJg" --header "Content-Type: application/json" https://android.googleapis.com/gcm/send -d "{\"registration_ids\":[\"f_XfgsW-aR0:APA91bH1mY_G7ER00IhfB0cmvK4_dMETbea5JLzA30vIi5GB8Rg2xzJ2qn3iMYKq4bFbr4Z5lIgg35KYxdpLmlsX-d6yhT51qQHdGnOh2Tw98psMTW8VlGESThcs0BwM2lWYDyBdWEv9\"]}"
