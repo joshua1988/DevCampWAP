@@ -257,6 +257,7 @@ function initialiseUI() {
 }
 ```
 
+#### Subscription Implementation
 > Let's implement features to enable push on the website.
 
 10. Implement `subscribeUser()` to subscribe with the registered service worker
@@ -320,6 +321,7 @@ function updateSubscriptionOnServer(subscription, unsubscribed) {
 ![push alarm](https://github.com/joshua1988/DevCampWAP/blob/master/%234-progressive-web-apps/push-with-firebase/images/screenshots/05-push-codelab.png)
 
 
+#### Sending the browser key to Firebase
 > Now we need to send this subscription information to the server so that we can send the specific device a push message.
 
 15. Add the `sendDeviceKeytoFirebase()` to `updateSubscriptionOnServer()` to send the browser key to Firebase
@@ -372,7 +374,7 @@ function getCurrentTime() {
 
 ![firebase-db](https://github.com/joshua1988/DevCampWAP/blob/master/%234-progressive-web-apps/push-with-firebase/images/screenshots/firebase-db.png?raw=true)
 
-
+#### Notification Implementation
 > Let's code the last part of this tutorial, which is Push Notification
 
 19. Add this code below in `sw.js` to pop up the notification when push arrives
@@ -413,6 +415,8 @@ self.addEventListener('notificationclick', function(event) {
 ![09-push-codelab](https://github.com/joshua1988/DevCampWAP/blob/master/%234-progressive-web-apps/push-with-firebase/images/screenshots/09-push-codelab.png?raw=true)
 
 22. Send a push to the browser using the Curl command that contains Server Key & Browser Key (end point).
+
+#### Removing the unsubscribed User key in Firebase
 23. Implement `unSubscribeUser()` to delete the subscription info in Firebase DB
 
 ```js
