@@ -12,6 +12,8 @@
   export default {
     components: {
       'login-form': LoginForm
+      // 할일 #1
+      // Local 컴포넌트를 하나 등록하고, login form 아래에 렌더링 해보세요.
     }
   }
 </script>
