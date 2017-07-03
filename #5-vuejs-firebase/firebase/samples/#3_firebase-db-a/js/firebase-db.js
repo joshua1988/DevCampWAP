@@ -12,7 +12,7 @@ function addToDB() {
 }
 
 function appendItemsToList(obj) {
-
+  
 }
 
 // input operation

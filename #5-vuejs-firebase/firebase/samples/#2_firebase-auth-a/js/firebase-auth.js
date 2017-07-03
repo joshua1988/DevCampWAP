@@ -7,7 +7,6 @@ var firebaseSignIn = function () {
 };
 
 var firebaseSignInWithGoogle = function () {
-
 };
 
 var firebaseSignUp = function () {
