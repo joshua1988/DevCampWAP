@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style scoped>
 .clearAllContainer {
   width: 8.5rem;
   height: 50px;

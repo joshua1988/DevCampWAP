@@ -4,10 +4,7 @@
   </header>
 </template>
 
-<script>
-</script>
-
-<style lang="css">
+<style scoped>
 h1 {
   color: white;
 }

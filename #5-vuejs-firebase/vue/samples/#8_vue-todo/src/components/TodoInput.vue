@@ -45,7 +45,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style scoped>
 input:focus {
   outline: none;
 }
