@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="src/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="src/assets/favicon.ico" type="image/x-icon">
+    <!-- Facebook Open Graph-->
+    <meta property="og:url"                content="https://devcamp-firebase-52bee.firebaseapp.com/#/share" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="Realtime Air Condition" />
+    <meta property="og:description"        content="Let's see how the weather looks like" />
+    <meta property="og:image"              content="https://devcamp-firebase-52bee.firebaseapp.com/src/assets/logo.png" />
+    <!-- Vue Materialize -->
+    <link rel="stylesheet" href="src/css/font.css">
+    <link rel="stylesheet" href="src/css/vue-material.css">
+    <title>vue-webpack</title>
+
+    <style>
+    body {
+      height: 100%;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script src="src/vendor/firebase.js"></script>
+    <script src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=Z9slxvNssnmhAcBEHlm1&submodules=geocoder"></script>
+    <script src="app-init.js"></script>
+    <script src="/dist/build.js"></script>
+  </body>
+</html>
