@@ -1,16 +1,11 @@
 <template lang="html">
   <header>
-    <h2>Vue Todo</h2>
+    <h1>Vue Todo</h1>
   </header>
 </template>
 
-<script>
-export default {
-}
-</script>
-
-<style>
-h2 {
+<style scoped>
+h1 {
   color: white;
 }
 </style>
