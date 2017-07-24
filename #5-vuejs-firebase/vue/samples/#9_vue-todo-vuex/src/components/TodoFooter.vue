@@ -7,12 +7,17 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
   methods: {
-    clearTodo() {
-      // this.$emit('clearLocalStorage');
-      return this.$store.commit('removeAllTodoItems');
-    }
+    // clearTodo() {
+    //   return this.$store.commit('removeAllTodoItems');
+    // }
+
+    ...mapMutations({
+      clearTodo: 'removeAllTodoItems'
+    })
   },
   computed: {
     todoCounts() {

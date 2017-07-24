@@ -5,7 +5,7 @@
         <li v-for="(todoItem, index) in todoItems" :key="todoItem">
           <i class="checkBtn fa fa-check" aria-hidden="true"></i>
           {{ todoItem }}
-          <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
+          <span class="removeBtn" type="button" @click="removeTodo({todoItem, index})">
             <i class="fa fa-trash-o" aria-hidden="true"></i>
           </span>
         </li>
@@ -15,19 +15,30 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import { mapMutations } from 'vuex';
+
 export default {
   methods: {
-    removeTodo(todoItem, index) {
-      return this.$store.commit('removeTodoItem', {
-        todoItem: todoItem,
-        index: index
-      });
-    }
+    // removeTodoItem(todoItem, index) {
+    //   return this.$store.commit('removeTodoItem', {
+    //     todoItem: todoItem,
+    //     index: index
+    //   });
+    // }
+
+    ...mapMutations({
+      removeTodo: 'removeTodoItem'
+    })
   },
   computed: {
-    todoItems() {
-      return this.$store.getters.getTodoItems;
-    }
+    // todoItems() {
+    //   return this.$store.getters.getTodoItems;
+    // }
+
+    ...mapGetters({
+      todoItems: 'getTodoItems'
+    })
   }
 }
 </script>

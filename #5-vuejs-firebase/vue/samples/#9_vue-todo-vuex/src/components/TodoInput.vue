@@ -28,18 +28,13 @@ export default {
   },
   methods: {
     addTodo() {
-      // console.log(this.$store.state.todoItems);
-      this.$store.commit('addTodoItem', this.newTodoItem);
-      console.log(this.$store.state.todoItems);
-
-      // if (this.newTodoItem !== '') {
-      //   var value = this.newTodoItem && this.newTodoItem.trim();
-      //   localStorage.setItem(value, value);
-      //   this.passedData.push(value);
-      //   this.newTodoItem = '';
-      // } else {
-      //   this.showModal = true;
-      // }
+      if (this.newTodoItem !== '') {
+        var value = this.newTodoItem && this.newTodoItem.trim();
+        this.$store.commit('addTodoItem', value);
+        this.newTodoItem = '';
+      } else {
+        this.showModal = true;
+      }
     }
   },
   components: {
