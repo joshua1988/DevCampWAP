@@ -52,7 +52,7 @@
         return this.$refs.leftSidenav.toggle();
       },
       refreshData() {
-        eventBus.$emit('refresh', 10);
+        eventBus.$emit('refresh', 10);  
       },
       signOut(event) {
         var self = this;

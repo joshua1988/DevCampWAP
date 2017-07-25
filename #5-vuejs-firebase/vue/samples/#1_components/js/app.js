@@ -13,10 +13,11 @@ var app = new Vue({
   data: {
     message : 'This is a parent component'
   },
+
   // Local Component
   // components: {
   //   'todo-item' : todoItem
-  // }
+  // },
 
   // 실습 #2 - `todo-footer` 컴포넌트 지역 등록
   // <p>This is another child component</p> 를 template 으로 갖는 컴포넌트를 등록해보세요.
