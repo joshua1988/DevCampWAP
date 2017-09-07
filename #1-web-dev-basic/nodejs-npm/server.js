@@ -2,8 +2,9 @@
 var http = require('http');
 
 http.createServer(function (req, res) {
-  res.write('Hello World!'); //write a response to the client
-  res.end(); //end the response
+  res.write('Hello World! from HTTP');
+  res.end();
+  console.log("Server received the user request");
 }).listen(8080); //the server object listens on port 8080
 
 // 2. Express Code
@@ -11,7 +12,7 @@ http.createServer(function (req, res) {
 // var app = express();
 //
 // app.get('/', function (req, res) {
-//   res.send('Hello World!');
+//   res.send('Hello World! from Express');
 // });
 //
 // app.listen(3000, function () {
