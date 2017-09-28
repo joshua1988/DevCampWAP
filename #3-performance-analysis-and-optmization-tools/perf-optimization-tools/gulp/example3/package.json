@@ -16,5 +16,8 @@
   },
   "eslintConfig": {
     "extends": "google"
+  },
+  "dependencies": {
+    "gulp-eslint": "^4.0.0"
   }
 }

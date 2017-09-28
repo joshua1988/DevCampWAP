@@ -9,6 +9,7 @@ curl --header "Authorization: key=AAAAummcSko:APA91bHppIKcGEMQnLT8RvZC_q1eVrVz2T
 
 
 
+curl --header "Authorization: key=AAAAKGUavjw:APA91bGaFUTRfbIeuNUE3DvaOAfJxiayFtaHNDITMA5F32jnjHcivRthgP6h7yNt-BuGtpUg2ESqwXq22juEUeWfo9fG8ne1wlAZoHwlRWiv2YjdE88JcNguLv-n8418RMpxE8ARlfsV" --header "Content-Type: application/json" https://android.googleapis.com/gcm/send -d "{\"registration_ids\":[\"{e8AwZ1aH2DM:APA91bFwp_VHPl5Hkgy0t-owrlg-1fhXQfL3Tojc7Sw1C9bP44obD9lSRIqeSnS_9tqfilJBZIgge-iumiEWOUCXLrzhM6E2ZPiYITYBugnP4_us0VuMW7Z9CSUIQONCcIUOkUdg6vIv}\"]}"
 
 
 
