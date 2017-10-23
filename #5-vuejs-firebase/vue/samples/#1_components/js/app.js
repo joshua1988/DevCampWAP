@@ -1,12 +1,12 @@
 // Global Component
-Vue.component('todo-item', {
-  template: '<p>This is a child component</p>'
+Vue.component('global-component', {
+  template: '<p><strong>This is a global component</strong></p>'
 });
 
 // Local Component
-// var todoItem = {
-//   template: '<p>This is a child component</p>'
-// }
+var cmp = {
+  template: '<p><strong>This is a local component</strong></p>'
+}
 
 var app = new Vue({
   el: '#app',
@@ -15,13 +15,13 @@ var app = new Vue({
   },
 
   // Local Component
-  // components: {
-  //   'todo-item' : todoItem
-  // },
+  components: {
+    'local-component' : cmp
+  },
 
-  // 실습 #2 - `todo-footer` 컴포넌트 지역 등록
-  // <p>This is another child component</p> 를 template 으로 갖는 컴포넌트를 등록해보세요.
+  // 실습 #2 - `another-local-component` 컴포넌트 지역 등록
+  // <p>This is another local component</p> 를 template 으로 갖는 컴포넌트를 등록해보세요.
 });
 
-// 실습 #1 - `todo-footer` 컴포넌트 전역 등록
-// <p>This is another child component</p> 를 template 으로 갖는 컴포넌트를 등록해보세요.
+// 실습 #1 - `another-global-component` 컴포넌트 전역 등록
+// <p>This is another global component</p> 를 template 으로 갖는 컴포넌트를 등록해보세요.
