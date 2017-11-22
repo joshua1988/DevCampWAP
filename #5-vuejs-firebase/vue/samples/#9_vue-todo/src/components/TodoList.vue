@@ -2,7 +2,7 @@
   <section>
     <ul v-if="passedData">
       <transition-group name="list" tag="p">
-        <li v-for="(todoItem, index) in passedData" :key="todoItem">
+        <li v-for="(todoItem, index) in passedData" :key="todoItem" class="shadow">
           <i class="checkBtn fa fa-check" aria-hidden="true"></i>
           {{ todoItem }}
           <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
