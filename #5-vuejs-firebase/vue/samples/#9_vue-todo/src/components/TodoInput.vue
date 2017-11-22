@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="inputBox">
+  <div class="inputBox shadow">
     <input type="text" v-model="newTodoItem" placeholder="Type what you have to do" v-on:keyup.enter="addTodo">
     <span class="addContainer" v-on:click="addTodo"><i class="addBtn fa fa-plus" aria-hidden="true"></i></span>
 
@@ -61,7 +61,7 @@ input:focus {
 }
 .addContainer {
   float: right;
-  background: #fbcb44;
+  background: linear-gradient(to right, #6478FB, #8763FB);
   display: inline-block;
   width: 3rem;
   border-radius: 0 5px 5px 0;
