@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <transition name="fade">
     <div v-if="todoCounts" class="clearAllContainer">
       <span class="clearAllBtn" @click="clearTodo">Clear All</span>

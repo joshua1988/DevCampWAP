@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <section>
     <ul v-if="passedData">
       <transition-group name="list" tag="p">
@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style scoped>
 ul {
   list-style-type: none;
   padding-left: 0px;
