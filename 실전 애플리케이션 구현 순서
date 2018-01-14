@@ -1,0 +1,15 @@
+[차트 구현]
+1. Chart 설치
+2. 종류별 차트 구현
+3. 차트 import 및 렌더링
+
+[PWA 구현]
+1. Web App Manifest 파일 추가
+2. Service Worker 추가
+3. Push Notification 구현
+
+[파이어베이스 구현]
+1. 파이어베이스 프로젝트 생성
+  1. auth, deploy, db 선택
+2. 파이어베이스 인증 구현 (로그인 페이지)
+3. 파이어베이스 DB 구현 (서비스워커)
