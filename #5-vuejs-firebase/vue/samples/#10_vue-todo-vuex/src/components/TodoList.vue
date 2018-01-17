@@ -20,6 +20,7 @@ import { mapMutations } from 'vuex';
 
 export default {
   methods: {
+    // #1
     // removeTodoItem(todoItem, index) {
     //   return this.$store.commit('removeTodoItem', {
     //     todoItem: todoItem,
@@ -27,15 +28,18 @@ export default {
     //   });
     // }
 
+    // #2
     ...mapMutations({
       removeTodo: 'removeTodoItem'
     })
   },
   computed: {
+    // #1
     // todoItems() {
     //   return this.$store.getters.getTodoItems;
     // }
 
+    // #2
     ...mapGetters({
       todoItems: 'getTodoItems'
     })
@@ -43,43 +47,46 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style scoped>
 ul {
-  list-style-type: none;
-  padding-left: 0px;
-  margin-top: 0;
-  text-align: left;
+	list-style-type: none;
+	padding-left: 0px;
+	margin-top: 0;
+	text-align: left;
 }
 li {
-  display: flex;
-  min-height: 50px;
-  height: 50px;
-  line-height: 50px;
-  margin: 0.5rem 0;
-  padding: 0 0.9rem;
-  background: white;
-  border-radius: 5px;
+	display: flex;
+	min-height: 50px;
+	height: 50px;
+	line-height: 50px;
+	margin: 0.5rem 0;
+	padding: 0 0.9rem;
+	background: white;
+	border-radius: 5px;
 }
 .checkBtn {
-  line-height: 45px;
-  color: #62acde;
-  margin-right: 5px;
+	line-height: 45px;
+	color: #62acde;
+	margin-right: 5px;
 }
 .removeBtn {
-  margin-left: auto;
-  color: #de4343;
+	margin-left: auto;
+	color: #de4343;
 }
 
-/* transition effect */
+
 .list-item {
-  display: inline-block;
-  margin-right: 10px;
+	display: inline-block;
+	margin-right: 10px;
+}
+.list-move {
+	transition: transform 1s;
 }
 .list-enter-active, .list-leave-active {
-  transition: all 1s;
+	transition: all 1s;
 }
-.list-enter, .list-leave-to /* .list-leave-active for <2.1.8 */ {
-  opacity: 0;
-  transform: translateY(30px);
+.list-enter, .list-leave-to {
+	opacity: 0;
+	transform: translateY(30px);
 }
 </style>

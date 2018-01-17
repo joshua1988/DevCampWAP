@@ -29,22 +29,16 @@ export default {
 
 <style scoped>
 .clearAllContainer {
-  width: 8.5rem;
-  height: 50px;
-  line-height: 50px;
-  background-color: white;
-  border-radius: 5px;
-  margin: 0 auto;
+	width: 8.5rem;
+	height: 50px;
+	line-height: 50px;
+	background-color: white;
+	border-radius: 5px;
+	margin: 0 auto;
 }
 .clearAllBtn {
-  color: #e20303;
-}
-
-/* transition effect */
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
-  opacity: 0
+	color: #e20303;
+	/* 추가 */
+	display: block;
 }
 </style>

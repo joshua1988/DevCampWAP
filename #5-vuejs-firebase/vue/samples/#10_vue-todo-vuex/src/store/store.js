@@ -1,18 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 // import todoItems from './modules/todoitems'
-
 import * as getters from './getters'
 import * as mutations from './mutations'
 
 Vue.use(Vuex);
 
-var localStorageItems = {
-  fetch: function () {
-    var items = [];
-    for (var key in localStorage) {
-      items.push(key);
-    }
+const localStorageItems = {
+	fetch() {
+    const items = [];
+		if (localStorage.length > 0) {
+			for (let i = 0; i < localStorage.length; i++) {
+				items.push(localStorage.key(i));
+			}
+		}
     return items;
   }
 }
@@ -43,11 +44,11 @@ export const store = new Vuex.Store({
   //   }
   // }
 
-  // modularizing vuex components
+  // # modularizing vuex components
   getters: getters,
   mutations: mutations,
 
-  // modularizing features based on purposes
+  // # modularizing features based on purposes
   // modules: {
   //   todoItems: todoItems
   // }

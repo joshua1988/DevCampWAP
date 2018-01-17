@@ -1,15 +1,13 @@
 <template>
   <div class="inputBox shadow">
     <input type="text" v-model="newTodoItem" placeholder="Type what you have to do" v-on:keyup.enter="addTodo">
-    <span class="addContainer" v-on:click="addTodo"><i class="addBtn fa fa-plus" aria-hidden="true"></i></span>
+    <span class="addContainer" v-on:click="addTodo">
+      <i class="addBtn fa fa-plus" aria-hidden="true"></i>
+    </span>
 
     <modal v-if="showModal" @close="showModal = false">
-      <!--
-        you can use custom content here to overwrite
-        default content
-      -->
-      <h3 slot="header">Warning</h3>
-      <span slot="footer" @click="showModal = false">Don't enter the empty item
+      <h3 slot="header">경고</h3>
+      <span slot="footer" @click="showModal = false">할 일을 입력하세요.
         <i class="closeModalBtn fa fa-times" aria-hidden="true"></i>
       </span>
     </modal>
@@ -20,8 +18,7 @@
 import Modal from './common/Modal.vue'
 
 export default {
-  props: ['passedData'],
-  data () {
+  data() {
     return {
       newTodoItem: '',
       showModal: false
@@ -29,14 +26,16 @@ export default {
   },
   methods: {
     addTodo() {
-      if (this.newTodoItem !== '') {
+      if (this.newTodoItem !== "") {
         var value = this.newTodoItem && this.newTodoItem.trim();
-        localStorage.setItem(value, value);
-        this.passedData.push(value);
-        this.newTodoItem = '';
+				this.$emit('addTodo', value)
+        this.clearInput();
       } else {
-        this.showModal = true;
+        this.showModal = !this.showModal;
       }
+    },
+    clearInput() {
+      this.newTodoItem = '';
     }
   },
   components: {

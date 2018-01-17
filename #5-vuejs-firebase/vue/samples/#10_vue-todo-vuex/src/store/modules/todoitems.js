@@ -1,12 +1,14 @@
-var localStorageItems = {
-  fetch: function () {
-    var items = [];
-    for (var key in localStorage) {
-      items.push(key);
-    }
+const localStorageItems = {
+  fetch() {
+    const items = [];
+		if (localStorage.length > 0) {
+			for (let i = 0; i < localStorage.length; i++) {
+				items.push(localStorage.key(i));
+			}
+		}
     return items;
   }
-}
+};
 
 const state = {
   todoItems: localStorageItems.fetch()
