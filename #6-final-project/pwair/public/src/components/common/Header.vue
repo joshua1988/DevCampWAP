@@ -28,10 +28,6 @@
         </md-list-item>
         <md-list-item @click.native="signOut">Logout</md-list-item>
         <PushSwitch></PushSwitch>
-
-        <!-- <md-list-item>Plain Text</md-list-item>
-        <md-list-item target="_blank" href="https://google.com">Link</md-list-item>
-        <md-list-item @click.native="openAlert">Button</md-list-item> -->
       </md-list>
     </md-sidenav>
   </div>
@@ -52,7 +48,7 @@
         return this.$refs.leftSidenav.toggle();
       },
       refreshData() {
-        eventBus.$emit('refresh', 10);  
+        eventBus.$emit('refresh', 10);
       },
       signOut(event) {
         var self = this;

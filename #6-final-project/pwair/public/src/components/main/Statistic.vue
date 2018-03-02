@@ -6,7 +6,7 @@
       </md-toolbar>
 
       <md-card-area>
-        <md-tabs md-right :md-dynamic-height="false" class="md-transparent example-tabs">
+        <md-tabs md-right :md-dynamic-height="false" class="md-transparent example-tabs" style="line-height: 47px !important;">
           <md-tab md-label="어제" md-active>
             <!-- Vue Chart -->
             <BarChart v-bind:selectedPeriod="yesterday"></BarChart>
@@ -25,7 +25,6 @@
 <script>
 // https://vuejsfeed.com/blog/create-charts-with-vue-chartjs
 import BarChart from '../../utils/charts.js';
-import { eventBus } from '../../main';
 
 export default {
   data () {

@@ -17,7 +17,8 @@ Vue.material.registerTheme('default', {
   accent: 'red',
   warn: 'red',
   background: 'white',
-  black: 'black'
+  black: 'black',
+  lblue: 'light-blue'
 })
 
 const router = new VueRouter({

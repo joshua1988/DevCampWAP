@@ -24,7 +24,7 @@ export default {
       var self = this;
       if (this.loginExceptionHandler()) return true;
 
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password).catch(function(error) {
+      return firebase.auth().signInWithEmailAndPassword(this.email, this.password).catch(function(error) {
         if (error.code === 'auth/wrong-password') {
           alert('Wrong password.');
         } else {

@@ -7,7 +7,7 @@
     <!-- alert on the bottom -->
     <md-snackbar :md-position="vertical + ' ' + horizontal" ref="snackbar" :md-duration="duration">
       <span>{{snackbar_msg}}</span>
-      <md-button class="md-accent" md-theme="light-blue" @click.native="$refs.snackbar.close()">Close</md-button>
+      <md-button class="md-lblue" @click.native="$refs.snackbar.close()">Close</md-button>
     </md-snackbar>
   </div>
 </template>
@@ -99,7 +99,7 @@ export default {
     }
   },
   created() {
-    // Get get info
+    // Get geolocation info
     if (navigator.geolocation) {
       console.log('Geolocation is supported!');
       this.getUserLocation();
