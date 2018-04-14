@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/minasis/DevCampWAP/issues"
   },
-  "homepage": "https://github.com/minasis/DevCampWAP#readme"
+  "homepage": "https://github.com/minasis/DevCampWAP#readme",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
 }
