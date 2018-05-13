@@ -1,0 +1,6 @@
+* {margin:0px; padding:0px; font-size: 10px; vertical-align: top;}
+ul, li {list-style:none;}
+
+h1 {font-size: 3rem}
+
+.wrap {max-width:720px; margin:0 auto;}

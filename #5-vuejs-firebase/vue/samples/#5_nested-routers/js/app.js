@@ -38,6 +38,24 @@ var ListItems = {
   `,
 };
 
+var btns = {
+  template: `
+    <div>
+      btn Section
+      <router-view></router-view>
+    </div>
+  `,
+};
+var btnItems = {
+  template: `
+    <div>
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+    </div>
+  `,
+};
+
 // 할일 #2
 // Main 컴포넌트와 그 하위 컴포넌트를 아래 등록해보세요.
 
@@ -54,6 +72,13 @@ var routes = [
     component: List,
     children: [
       { path: '', component: ListItems }
+    ]
+  },
+  {
+    path: '/btns',
+    component: btns,
+    children: [
+      { path: '', component: btnItems }
     ]
   },
   // 할일 #1

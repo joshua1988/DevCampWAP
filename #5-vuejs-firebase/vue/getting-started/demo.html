@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <p>{{ msg }}</p>
+        <my-cmp></my-cmp>
+        <my-local-cmp></my-local-cmp>
+    </div>
+</body>
+    <script>
+        Vue.component("my-cmp",{
+            template:"<p>component template</p>"
+        });
+
+        var localCmp = {
+            template:"<p>component template2</p>"
+        }
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg:'Hello Vue'
+            },
+            // template: "<p>{{ msg }}</p>",
+            created:function(){
+                console.log("test")
+            },
+            components:{
+                "my-local-cmp":localCmp
+            }
+        })
+    </script>
+</html>
