@@ -1,0 +1,22 @@
+{
+  "name": "devcampwap",
+  "version": "1.0.0",
+  "description": "Fast Campus Web App Project camp for Front-End Engineers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minasis/DevCampWAP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/minasis/DevCampWAP/issues"
+  },
+  "homepage": "https://github.com/minasis/DevCampWAP#readme",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}

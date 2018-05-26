@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <local_cmp></local_cmp>
+    </div>
+</body>
+<script>
+    var local_cmp = {
+        template: "<div><p>local component</p><button @click='clickMe'>click</button></div>",
+        methods:{
+            clickMe:function(){
+                bus.$emit("busEvent2")
+                console.log("clicked")
+            }
+        }
+    }
+
+    var bus = new Vue()
+
+    new Vue({
+        el:"#app",
+        components:{
+            'local_cmp':local_cmp
+        },
+        created:function(){
+            bus.$on("busEvent",function(){
+                console.log("bus Recieved")
+            });
+
+            bus.$on("busEvent2",function(){
+                console.log("bus Recieved2")
+            });
+        }
+    });
+
+    
+</script>
+</html>

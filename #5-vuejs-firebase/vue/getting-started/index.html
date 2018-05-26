@@ -4,7 +4,7 @@
   </head>
   <body>
     <div id="app">
-      {{ message }}
+      
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
@@ -13,6 +13,10 @@
         el: '#app',
         data: {
           message: 'Hello Vue.js!'
+        },
+        // template:"<p>{{ message }}</p>"
+        render:function(createElement){
+          return createElement("div", this.message);
         }
       })
     </script>

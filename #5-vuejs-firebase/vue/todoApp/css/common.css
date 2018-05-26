@@ -1,0 +1,7 @@
+* {margin:0px; padding:0px; font-size: 10px; vertical-align: top; box-sizing: border-box; text-decoration: none;}
+ul, li {list-style:none;}
+
+h1 {font-size: 3rem; text-align: center; margin-bottom: 20px;}
+button {background: #fff; border:1px solid #ccc; border-radius: 2px; box-shadow: none;}
+
+.wrap {max-width:720px; margin:0 auto; padding: 20px 0;}

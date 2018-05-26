@@ -1,0 +1,16 @@
+{
+    "short_name": "pwa-demo",
+    "name": "This web site is for pwa demo",
+    "icons":[
+        {
+            "src":"./images/test.png",
+            "type":"image/png",
+            "size":"192x192"
+        }
+    ],
+    "display":"standalone",
+    "start_url":"./",
+    "background_color":"#000",
+    "theme_color":"blue",
+    "orientation":"landscape"
+}

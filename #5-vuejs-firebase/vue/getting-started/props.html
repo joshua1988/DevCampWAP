@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- <script src="vue.js"></script> -->
+</head>
+<body>
+    <div id="app">
+        <child-cmp v-bind:propsdata="msg" v-on:passalert="showAlert"></child-cmp>
+    </div>
+</body>
+<script>
+    Vue.component("child-cmp",{
+        props:['propsdata'],
+        template:'<div>Child Component<br>{{propsdata}}<br><button v-on:click="popupAlert">click</button></div>',
+        methods:{
+            popupAlert:function(){
+                this.$emit("passalert")
+            }
+        }
+    });
+    new Vue({
+        el:'#app',
+        data:{
+            msg:'Parent Component'
+        },
+        methods:{
+            showAlert:function(){
+                alert("test")
+            }
+        }
+    })
+</script>
+</html>
