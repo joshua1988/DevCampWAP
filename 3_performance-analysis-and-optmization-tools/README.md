@@ -109,10 +109,10 @@ npm install
   ```html
   - <script src="https://unpkg.com/lodash@4.16.6"></script>
   - <script src="app/index.js"></script>
-  + <script src="dist/bundle.js"></script>
+  + <script src="dist/main.js"></script>
   ```
 
-5. run this command `webpack app/index.js dist/bundle.js` and start the index.html
+5. run this command `webpack --mode=production` and start the index.html
 
   ```html
   Hello webpack
@@ -126,9 +126,10 @@ npm install
   var path = require('path');
 
   module.exports = {
+    mode: 'none',
     entry: './app/index.js',
     output: {
-      filename: 'bundle.js',
+      filename: 'main.js',
       path: path.resolve(__dirname, 'dist')
     }
   };
