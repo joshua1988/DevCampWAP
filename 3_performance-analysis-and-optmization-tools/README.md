@@ -494,8 +494,7 @@ app.use(webpackDevMiddleware(compiler, {
 1. Create a new `package.json` and install plugins below
 
 ```
-npm init -y
-npm install webpack & jquery --save-dev
+npm init -y && npm install webpack jquery --save-dev
 ```
 
 2. Add `index.html`
@@ -548,4 +547,11 @@ module.exports = {
     })
   ]
 }
+```
+
+7. comment out the first line that loads jquery library in `app/index.js`
+
+```js
+// var $ = require('jquery');
+console.log("loaded jQuery version is " + $.fn.jquery);
 ```
