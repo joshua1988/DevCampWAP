@@ -140,7 +140,7 @@ npm install
 
 ```text
 npm i css-loader style-loader --save-dev
-npm i extract-text-webpack-plugin --save-dev
+npm i webpack mini-css-extract-plugin --save-dev
 ```
 
 1. Create a new `package.json`
@@ -193,6 +193,7 @@ import '../base.css';
 var path = require('path');
 
 module.exports = {
+  mode: 'none',
   entry: './app/index.js',
   output: {
     filename: 'bundle.js',
@@ -211,22 +212,25 @@ module.exports = {
 
 ```js
 // webpack.config.js
-{
+var path = require('path');
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
   // ...
   module: {
     rules: [{
       test: /\.css$/,
-      // Comment this out to load ExtractTextPlugin
-      // use: ['style-loader', 'css-loader']
-      use: ExtractTextPlugin.extract({
-        fallback: "style-loader",
-        use: "css-loader"
-      })
+      use: [
+        {
+          loader: MiniCssExtractPlugin.loader
+        },
+        "css-loader"
+      ]
     }]
   },
   plugins: [
-    new ExtractTextPlugin('styles.css')
-  ]
+    new MiniCssExtractPlugin()
+  ],
 }
 ```
 
@@ -295,6 +299,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
+  mode: 'none',
   entry: {
     main: './app/index.js',
     vendor: [
@@ -309,35 +314,41 @@ module.exports = {
 }
 ```
 
-optional
+6. Add the code below
 
 ```js
 // 1
-plugins: [
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'vendor' // Specify the common bundle's name.
-  }),
-]
-
-// 2
-new ManifestPlugin({
-  fileName: 'manifest.json',
-  basePath: './dist/'
-})
+output: {
+  // ...
+},
+optimization: {
+  splitChunks: {
+    cacheGroups: {
+      commons: {
+        test: /[\\/]node_modules[\\/]/,
+        name: 'vendor',
+        chunks: 'all'
+      }
+    }
+  }
+}
 ```
 
 #### Example 3 - Webpack Dev Server Setting
 - Initial development setting to make the build process easier
 
 ```
-npm install webpack webpack-dev-server --save-dev
+npm install webpack webpack-cli webpack-dev-server --save-dev
 webpack-dev-server --open
 ```
 
-- or add this option to `package.json` to launch the dev server
+- or add this 'dev' script to `package.json` to launch the dev server
 
 ```json
-"scripts": { "start": "webpack-dev-server" }
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "dev": "webpack-dev-server"
+},
 ```
 
 1. Create a new `package.json` and type the commands above
@@ -370,6 +381,7 @@ ele.innerText = "Webpack loaded!!";
 var path = require('path');
 
 module.exports = {
+  mode: 'none',
   entry: './app/index.js',
   output: {
     filename: 'bundle.js',
@@ -384,7 +396,7 @@ module.exports = {
 };
 ```
 
-5. Run `npm start` to launch the Webpack Dev Server
+5. Run `npm run dev` to launch the Webpack Dev Server
 
 > Please keep in mind that the **webpack devserver compiles in memory** not emits bundled file in output.path
 
@@ -513,6 +525,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
+  mode: 'none',
   entry: './app/index.js',
   output: {
     filename: 'bundle.js',
@@ -522,4 +535,17 @@ module.exports = {
 ```
 
 5. run `webpack`
-6. uncomments `#2` and `#3` to see how Resolve alias & Provide Plugin works
+6. add this code below to see how Provide Plugin works
+
+```js
+module.exports = {
+  output: {
+    // ...
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery'
+    })
+  ]
+}
+```
