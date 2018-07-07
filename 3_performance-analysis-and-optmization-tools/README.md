@@ -59,7 +59,7 @@ npm install
 1. Install webpack global
 
   ```js
-  npm i webpack -g
+  npm i webpack-cli -g
   ```
 
 2. create a package json file
@@ -78,7 +78,7 @@ npm install
       <script src="https://unpkg.com/lodash@4.16.6"></script>
     </head>
     <body>
-      <script src="app/index.js"></script>
+      <script src="src/index.js"></script>
     </body>
   </html>
   ```
@@ -108,11 +108,11 @@ npm install
 
   ```html
   - <script src="https://unpkg.com/lodash@4.16.6"></script>
-  - <script src="app/index.js"></script>
+  - <script src="src/index.js"></script>
   + <script src="dist/main.js"></script>
   ```
 
-5. run this command `webpack --mode=production` and start the index.html
+5. run this command `webpack --mode=none` and start the index.html
 
   ```html
   Hello webpack
@@ -127,7 +127,7 @@ npm install
 
   module.exports = {
     mode: 'none',
-    entry: './app/index.js',
+    entry: './src/index.js',
     output: {
       filename: 'main.js',
       path: path.resolve(__dirname, 'dist')
