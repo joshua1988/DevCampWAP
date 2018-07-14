@@ -284,7 +284,7 @@ function subscribeUser() {
 
 11. Check the subscription as a callback parameter
 
-![subscription](https://github.com/joshua1988/DevCampWAP/blob/master/%234-progressive-web-apps/push-with-firebase/images/screenshots/subscription.png?raw=true)
+![subscription](https://github.com/joshua1988/DevCampWAP/blob/master/4_progressive-web-apps/push-with-firebase/images/screenshots/subscription.png?raw=true)
 
 12. Add `updateSubscriptionOnServer()` in `subscribeUser()`'s success callback to send the key to Server
 
@@ -293,7 +293,11 @@ function subscribeUser() {
 function subscribeUser() {
   ...
   .then(function(subscription) {
+    console.log('User is subscribed:', subscription);
+    isSubscribed = true;
+
     updateSubscriptionOnServer(subscription);
+    updateBtn();
   })
   ...
 }
@@ -318,7 +322,7 @@ function updateSubscriptionOnServer(subscription, unsubscribed) {
 
 14. Run the application and click the button. You will see the prompt as below.
 
-![push alarm](https://github.com/joshua1988/DevCampWAP/blob/master/%234-progressive-web-apps/push-with-firebase/images/screenshots/05-push-codelab.png)
+![push alarm](https://github.com/joshua1988/DevCampWAP/blob/master/4_progressive-web-apps/push-with-firebase/images/screenshots/05-push-codelab.png)
 
 
 #### Sending the browser key to Firebase
@@ -354,12 +358,7 @@ function sendDeviceKeytoFirebase(key) {
     console.error('Sending a key to server has been failed');
   });
 }
-```
 
-17. Add the utility functions as well
-
-```js
-// firebase-db.js
 function getID() {
   var date = new Date();
   return date.getHours() + "-" + date.getMinutes() + "-" + date.getSeconds();
@@ -370,14 +369,14 @@ function getCurrentTime() {
 }
 ```
 
-18. Check the Firebase Database if the data has been stored properly in the table.
+17.  Check the Firebase Database if the data has been stored properly in the table.
 
-![firebase-db](https://github.com/joshua1988/DevCampWAP/blob/master/%234-progressive-web-apps/push-with-firebase/images/screenshots/firebase-db.png?raw=true)
+![firebase-db](https://github.com/joshua1988/DevCampWAP/blob/master/4_progressive-web-apps/push-with-firebase/images/screenshots/firebase-db.png?raw=true)
 
 #### Notification Implementation
 > Let's code the last part of this tutorial, which is Push Notification
 
-19. Add this code below in `sw.js` to pop up the notification when push arrives
+18. Add this code below in `sw.js` to pop up the notification when push arrives
 
 ```js
 // sw.js
@@ -412,7 +411,7 @@ self.addEventListener('notificationclick', function(event) {
 
 21. Let's see if this push function works through 'Application' panel in Dev Tools. Click the notification too
 
-![09-push-codelab](https://github.com/joshua1988/DevCampWAP/blob/master/%234-progressive-web-apps/push-with-firebase/images/screenshots/09-push-codelab.png?raw=true)
+![09-push-codelab](https://github.com/joshua1988/DevCampWAP/blob/master/4_progressive-web-apps/push-with-firebase/images/screenshots/09-push-codelab.png?raw=true)
 
 22. Send a push to the browser using the Curl command that contains Server Key & Browser Key (end point).
 
